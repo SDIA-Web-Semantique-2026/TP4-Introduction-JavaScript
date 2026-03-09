@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 2 : Conversion de durées</title>
+</head>
+<body>
+    <script>
+        function hjms(sec) {
+            sec = parseInt(sec)
+            const S = 1
+            const M = S*60
+            const H = M*60
+            const D = H*24
+
+            var days = 0
+            var hours = 0
+            var minutes = 0
+            var seconds = 0
+            let rest = sec; 
+
+            if (rest >= D) {
+                days = Math.floor(rest / D);
+                rest = rest % D;
+            }
+            if (rest >= H) {
+                hours = Math.floor(rest / H);
+                rest = rest % H;
+            }
+            if (rest >= M) { 
+                minutes = Math.floor(rest / M);
+                rest = rest % M;
+            }
+            seconds = rest; 
+
+            console.log(`Cette durée équivaut à ${days} jours ${hours} heures ${minutes} minutes ${seconds} secondes`)
+
+        }
+
+        let sec = prompt("Une durée en secondes : ")
+        hjms(sec)
+    </script>
+</body>
+</html>
