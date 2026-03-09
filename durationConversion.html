@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice 2 : Conversion de durées</title>
 </head>
+
 <body>
     <script>
         function hjms(sec) {
             sec = parseInt(sec)
             const S = 1
-            const M = S*60
-            const H = M*60
-            const D = H*24
+            const M = S * 60
+            const H = M * 60
+            const D = H * 24
 
-            var days = 0
-            var hours = 0
-            var minutes = 0
-            var seconds = 0
-            let rest = sec; 
-
+            let days = 0
+            let hours = 0
+            let minutes = 0
+            let seconds = 0
+            let rest = sec;
+            const output = []
+            
             if (rest >= D) {
                 days = Math.floor(rest / D);
                 rest = rest % D;
+                if (days === 1) {
+                    output.push(`${days} jour `)
+                }
+                else {
+                    output.push(`${days} jours `)
+                }
             }
             if (rest >= H) {
                 hours = Math.floor(rest / H);
                 rest = rest % H;
+                if (hours === 1) {
+                    output.push(`${hours} heure `)
+                }
+                else {
+                    output.push(`${hours} heures `)
+                }
             }
-            if (rest >= M) { 
+            if (rest >= M) {
                 minutes = Math.floor(rest / M);
                 rest = rest % M;
+                if (minutes === 1) {
+                    output.push(`${minutes} minute `)
+                }
+                else {
+                    output.push(`${minutes} minutes `)
+                }
             }
-            seconds = rest; 
+            
+            seconds = rest;
+            if (seconds > 0) {
+                if (seconds === 1) {
+                    output.push(`${seconds} seconde`)
+                }
+                else {
+                    output.push(`${seconds} secondes`)
+                }
+            }
 
-            console.log(`Cette durée équivaut à ${days} jours ${hours} heures ${minutes} minutes ${seconds} secondes`)
+            console.log(`Cette durée équivaut à ${output.join("")}`)
 
         }
 
@@ -42,4 +72,5 @@
         hjms(sec)
     </script>
 </body>
+
 </html>
