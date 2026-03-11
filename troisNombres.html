@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 3 : Classer 3 nombres</title>
+</head>
+
+<body>
+    <script>
+        function troisNombres() {
+            let nb1 = parseFloat(prompt("1er nombre : "));
+            let nb2 = parseFloat(prompt("2ème nombre : "));
+            let nb3 = parseFloat(prompt("3ème nombre : "));
+
+            let unsorted = [nb1, nb2, nb3];
+            let sorted = [];
+            
+            while (unsorted.length > 0) {
+                let min = unsorted[0];
+                let minIndex = 0;
+                
+                for (let i = 1; i < unsorted.length; i++) {
+                    if (unsorted[i] < min) {
+                        min = unsorted[i];
+                        minIndex = i;
+                    }
+                }
+                
+                sorted.push(min);
+                unsorted.splice(minIndex, 1);
+            }
+            
+            console.log(sorted);
+        }
+        troisNombres()
+    </script>
+</body>
+
+</html>
