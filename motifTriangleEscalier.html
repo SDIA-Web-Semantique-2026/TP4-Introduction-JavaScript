@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 4 : Affichage de motifs - escaliers</title>
+</head>
+
+<body>
+    <script>
+        let taille = parseInt(prompt("Un motif de taille = "))
+        // Avec while
+        function triangle1(taille) {
+            let ligne = 1
+            let motif = ""
+            while (ligne <= taille) {
+                let nbEtoile = 0
+                while (nbEtoile < ligne) {
+                    motif += "*"
+                    nbEtoile++
+                }
+                motif += "\n"
+                ligne++
+            }
+            console.log(motif)
+        }
+
+        // Avec for
+        function triangle2(taille) {
+            let motif = ""
+            for (let i = 1; i <= taille; i++) {
+                for (let j=0; j<i;j++){
+                    motif+="*"
+                }
+                motif+="\n"
+            };
+            console.log(motif)
+        }
+
+        triangle1(taille)
+        console.log("avec for:::")
+        triangle2(taille)
+    </script>
+</body>
+
+</html>
