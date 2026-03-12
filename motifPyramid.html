@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 4-bis : Affichage de motifs - pyramides</title>
+</head>
+
+<body>
+    <script>
+        let taille = parseInt(prompt("Un motif de taille = "))
+        // Avec while
+        function pyramide1(taille) {
+            let ligne = 1
+            let motif = ""
+            while (ligne <= taille) {
+                
+                let nbEspace = 0
+                while (nbEspace < taille-ligne) {
+                    motif += " "
+                    nbEspace++
+                }
+                
+                let nbEtoile = 0
+                while (nbEtoile < (ligne*2)-1) {
+                    motif += "*"
+                    nbEtoile++
+                }
+                
+                
+
+                motif += "\n"
+                ligne++
+            }
+            console.log(motif)
+        }
+//      *
+//     ***
+//    *****
+//   *******
+//  *********
+// ***********
+//*************
+
+        // Avec for
+        function pyramide2(taille) {
+            let motif = ""
+            for (let i = 1; i <= taille; i++) {
+
+                for (let j=0; j<taille - i;j++){
+                    motif+=" "
+                }
+
+                for (let j=0; j<(i*2)-1;j++){
+                    motif+="*"
+                }
+                motif+="\n"
+            };
+            console.log(motif)
+        }
+
+        pyramide1(taille)
+        console.log("avec for:::")
+        pyramide2(taille)
+    </script>
+</body>
+
+</html>
