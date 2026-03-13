@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 5 : Tester si un nombre est premier</title>
+</head>
+
+<body>
+    <script>
+        let nbr = parseInt(prompt("Un entier positif = "))
+
+        function estPremier(nbr) {
+            if (nbr <= 1) {
+                console.log(`${nbr} n'est pas premier (doit etre > 1)`);
+                return
+            }
+            if (nbr === 2) {
+                console.log(`2 est un nombre premier.`)
+                return
+            }
+
+            if (nbr % 2 === 0) {
+                console.log(`${nbr} n'est pas premier, il est divisible par 2`);
+                return;
+            }
+
+            let premier = true
+            for (let i = 3; i < (nbr + 1) / 2; i += 2) {
+                if (nbr % i === 0) {
+                    console.log(`${nbr} n'est pas un nombre premier, il est divisible par ${i}.`)
+                    premier = false
+                    break
+                }
+            }
+
+            if (premier) {
+                console.log(`${nbr} est un nombre premier`)
+            }
+        }
+        estPremier(nbr)
+    </script>
+</body>
+
+</html>
